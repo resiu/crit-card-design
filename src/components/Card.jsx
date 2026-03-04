@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as Collapsible from '@radix-ui/react-collapsible'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint, faTriangleExclamation, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -87,6 +88,7 @@ const CardComponent = ({
       <FontImport />
 
       {/* card-wrapper */}
+      <Collapsible.Root open={isOpen} onOpenChange={setIsOpen}>
       <div
         className="w-60 m-1"
         style={{ filter: 'drop-shadow(0.4rem 0.4rem 0rem rgba(0,0,0,0.4))' }}
@@ -117,19 +119,13 @@ const CardComponent = ({
         </div>
 
         {/* ── Status summary bar ── */}
-        <div
-          className="font-barlow w-full box-border bg-[#e0e0e0] px-2.5 py-1.5 flex justify-between items-center cursor-pointer text-[0.9rem] text-[#333] select-none hover:bg-[#d0d0d0] transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
-          role="button"
-          tabIndex={0}
-          onKeyDown={e => e.key === 'Enter' && setIsOpen(!isOpen)}
-        >
+        <Collapsible.Trigger className="font-barlow w-full box-border bg-[#e0e0e0] px-2.5 py-1.5 flex justify-between items-center cursor-pointer text-[0.9rem] text-[#333] select-none hover:bg-[#d0d0d0] transition-colors">
           <span className="italic text-[#555]">{statusSummary}</span>
           <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} className="text-[#555] text-[0.8rem]" />
-        </div>
+        </Collapsible.Trigger>
 
         {/* ── Expanded panel ── */}
-        {isOpen && (
+        <Collapsible.Content> 
           <div className="font-barlow bg-[#f5f5f5] rounded-b-lg px-3 py-2.5 text-[0.9rem] text-[#222] flex flex-col gap-2">
 
             {/* Info + map row */}
@@ -171,9 +167,11 @@ const CardComponent = ({
             </div>
 
           </div>
-        )}
+        </Collapsible.Content> 
+
       </div>
-    </>
+    </Collapsible.Root> 
+  </>
   );
 };
 
