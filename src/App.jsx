@@ -10,28 +10,25 @@ function App() {
 
   return (
     <>
-      {/* Fixed dashboard top bar */}
+      {/* Placeholder dashboard top bar */}
       <div className="fixed top-0 left-0 w-full h-14 bg-[#811311] text-white flex items-center px-4 shadow-lg z-50">
         <span className="font-barlow text-xl">Dashboard Place Holder</span>
       </div>
 
-      <div className='pt-14'>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(15rem, 1fr))',
-            gap: '0rem',
-            padding: '0rem',
-          }}
-          >
-          {cardsArray.map((_, index) => (
-            <CardComponent key={index} />
-          ))}
-        </div>
+      <div className='pt-20'> 
+        {/* Masonry-style columns to prevent gap in expanded view with grid*/}
+      <div className="columns-[15rem] gap-4">
+        {cardsArray.map((_, index) => (
+          <div key={index} className="break-inside-avoid mb-4">
+            <CardComponent />
+          </div>
+        ))}
       </div>
-    </>
 
-  );
+    </div>
+  </>
+);
+
 }
 
 export default App
