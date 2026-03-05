@@ -61,12 +61,12 @@ const CardComponent = ({
 
   return (
     <div
-      className="w-[18.75rem] m-[12.5px] inline-block"
+      className="w-full"
       style={{ filter: 'drop-shadow(0.5rem 0.5rem 0rem rgba(0,0,0,0.4))' }}
     >
       <Collapsible.Root open={open} onOpenChange={setOpen}>
 
-        {/* .card */}
+        {/* Card header */}
         <div
           className="w-full box-border h-[4.375rem] rounded-t-[0.625rem] px-[1.25rem] py-[2.5rem] flex justify-between items-center relative"
           style={{ backgroundColor: color }}
@@ -83,34 +83,34 @@ const CardComponent = ({
           <FontAwesomeIcon icon={faTriangleExclamation} className="text-[#f5d000] text-[1.25rem] absolute top-[10px] right-[10px]" />
         </div>
 
-        {/* .status-bar */}
-        <Collapsible.Trigger className={`w-full box-border bg-[#e0e0e0] hover:bg-[#d0d0d0] px-[12.5px] py-[7.5px] flex justify-between items-center cursor-pointer font-barlow text-[1.125rem] text-[#333] select-none ${open ? '' : 'rounded-b-[0.625rem]'}`}>
+        {/* Status / trigger bar */}
+        <Collapsible.Trigger
+          className={`w-full box-border bg-[#e0e0e0] hover:bg-[#d0d0d0] px-[12.5px] py-[7.5px] flex justify-between items-center cursor-pointer font-barlow text-[1.125rem] text-[#333] select-none ${open ? '' : 'rounded-b-[0.625rem]'}`}
+        >
           <span className="italic text-[#555]">{statusSummary}</span>
           <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} className="text-[#555] text-[1rem]" />
         </Collapsible.Trigger>
 
-        {/* .expanded-panel */}
-        <Collapsible.Panel className="bg-[#f5f5f5] rounded-b-[0.625rem] px-[15px] py-[12.5px] font-barlow text-[1.125rem] text-[#222] flex flex-col gap-[10px]">
-
-          {/* .info-map-row */}
+        {/* Expanded panel — normal flow, only pushes cards below in same column */}
+        <Collapsible.Panel
+          className="bg-[#f5f5f5] rounded-b-[0.625rem] px-[15px] py-[12.5px] font-barlow text-[1.125rem] text-[#222] flex flex-col gap-[10px]"
+        >
           <div className="flex justify-between items-start gap-[10px]">
-            <div className="flex flex-col gap-[2.5px] text-[1.0625rem] leading-[1.4]">
-              <div><span className="text-[#555]">printer ID:</span> {printerId}</div>
-              <div><span className="text-[#555]">ip address:</span> {ipAddress}</div>
-              <div><span className="text-[#555]">serial number:</span> {serialNumber}</div>
+            <div className="flex flex-col gap-[2.5px] text-[1.0625rem] leading-[1.4] min-w-0">
+              <div className="truncate"><span className="text-[#555]">printer ID:</span> {printerId}</div>
+              <div className="truncate"><span className="text-[#555]">ip address:</span> {ipAddress}</div>
+              <div className="truncate"><span className="text-[#555]">serial number:</span> {serialNumber}</div>
             </div>
-            <div className="w-[67.5px] h-[67.5px] bg-[#c8e6c9] border border-[#aaa] rounded-[5px] flex items-center justify-center">
+            <div className="w-[67.5px] h-[67.5px] shrink-0 bg-[#c8e6c9] border border-[#aaa] rounded-[5px] flex items-center justify-center">
               <span>map</span>
             </div>
           </div>
 
-          {/* paper */}
           <div className="flex flex-col gap-[5px]">
             <div className="text-[1.0625rem] text-[#555] mb-[2.5px]">paper</div>
             {paper.map((p, i) => <SupplyBar key={i} {...p} />)}
           </div>
 
-          {/* toner */}
           <div className="flex flex-col gap-[5px]">
             <div className="text-[1.0625rem] text-[#555] mb-[2.5px]">toner</div>
             {tonerSlots.map((t, i) => <SupplyBar key={i} {...t} />)}
@@ -122,8 +122,8 @@ const CardComponent = ({
               <FontAwesomeIcon icon={faChevronUp} />
             </Collapsible.Trigger>
           </div>
-
         </Collapsible.Panel>
+
       </Collapsible.Root>
     </div>
   );
