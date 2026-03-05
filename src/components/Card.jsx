@@ -59,6 +59,11 @@ const CardComponent = ({
   const [open, setOpen] = useState(false);
   const tonerSlots = toner ?? (isColor ? TONER_COLOR : TONER_MONO);
 
+  // Orange and green cards hide the header warning when collapsed
+  const CALM_COLORS = ["#b05a00", "#1a6b3a"];
+  const isCalm = CALM_COLORS.map(c => c.toLowerCase()).includes(color.toLowerCase());
+  const showHeaderWarning = !isCalm || open;
+
   return (
     <div
       className="w-full"
@@ -80,7 +85,9 @@ const CardComponent = ({
             </div>
           </div>
           <FontAwesomeIcon icon={faPrint} className="text-white text-[3.125rem]" />
-          <FontAwesomeIcon icon={faTriangleExclamation} className="text-[#f5d000] text-[1.25rem] absolute top-[10px] right-[10px]" />
+          {showHeaderWarning && (
+            <FontAwesomeIcon icon={faTriangleExclamation} className="text-[#f5d000] text-[1.25rem] absolute top-[10px] right-[10px]" />
+          )}
         </div>
 
         {/* Status / trigger bar */}
