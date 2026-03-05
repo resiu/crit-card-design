@@ -60,7 +60,7 @@ const CardComponent = ({
   const tonerSlots = toner ?? (isColor ? TONER_COLOR : TONER_MONO);
 
   // Orange and green cards hide the header warning when collapsed
-  const CALM_COLORS = ["#b05a00", "#1a6b3a"];
+  const CALM_COLORS = ["#c0681f", "#1a6b3a"];
   const isCalm = CALM_COLORS.map(c => c.toLowerCase()).includes(color.toLowerCase());
   const showHeaderWarning = !isCalm;
 

@@ -42,7 +42,7 @@ const printers = [
     ipAddress: "192.168.1.103",
     serialNumber: "SN-38293",
     printCount: "210,005",
-    color: "#b05a00",
+    color: "#c0681f",
     isColor: true,
     paper: [
       { percent: 60, color: "#1a3a6b" },
@@ -63,7 +63,7 @@ const printers = [
     ipAddress: "192.168.1.104",
     serialNumber: "SN-38294",
     printCount: "77,430",
-    color: "#b05a00",
+    color: "#c0681f",
     isColor: true,
     paper: [
       { percent: 88, color: "#1a3a6b" },
@@ -191,7 +191,7 @@ const printers = [
     ipAddress: "192.168.1.103",
     serialNumber: "SN-38293",
     printCount: "210,005",
-    color: "#b05a00",
+    color: "#c0681f",
     isColor: true,
     paper: [
       { percent: 60, color: "#1a3a6b" },
@@ -212,7 +212,7 @@ const printers = [
     ipAddress: "192.168.1.104",
     serialNumber: "SN-38294",
     printCount: "77,430",
-    color: "#b05a00",
+    color: "#c0681f",
     isColor: true,
     paper: [
       { percent: 88, color: "#1a3a6b" },
@@ -339,7 +339,7 @@ const printers = [
     ipAddress: "192.168.1.103",
     serialNumber: "SN-38293",
     printCount: "210,005",
-    color: "#b05a00",
+    color: "#c0681f",
     isColor: true,
     paper: [
       { percent: 60, color: "#1a3a6b" },
@@ -360,7 +360,7 @@ const printers = [
     ipAddress: "192.168.1.104",
     serialNumber: "SN-38294",
     printCount: "77,430",
-    color: "#b05a00",
+    color: "#c0681f",
     isColor: true,
     paper: [
       { percent: 88, color: "#1a3a6b" },
@@ -487,7 +487,7 @@ const printers = [
     ipAddress: "192.168.1.103",
     serialNumber: "SN-38293",
     printCount: "210,005",
-    color: "#b05a00",
+    color: "#c0681f",
     isColor: true,
     paper: [
       { percent: 60, color: "#1a3a6b" },
@@ -508,7 +508,7 @@ const printers = [
     ipAddress: "192.168.1.104",
     serialNumber: "SN-38294",
     printCount: "77,430",
-    color: "#b05a00",
+    color: "#c0681f",
     isColor: true,
     paper: [
       { percent: 88, color: "#1a3a6b" },
