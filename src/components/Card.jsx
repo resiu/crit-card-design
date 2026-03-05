@@ -62,7 +62,7 @@ const CardComponent = ({
   // Orange and green cards hide the header warning when collapsed
   const CALM_COLORS = ["#b05a00", "#1a6b3a"];
   const isCalm = CALM_COLORS.map(c => c.toLowerCase()).includes(color.toLowerCase());
-  const showHeaderWarning = !isCalm || open;
+  const showHeaderWarning = !isCalm;
 
   return (
     <div
@@ -98,7 +98,7 @@ const CardComponent = ({
           <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} className="text-[#555] text-[1rem]" />
         </Collapsible.Trigger>
 
-        {/* Expanded panel — normal flow, only pushes cards below in same column */}
+        {/* Expanded panel */}
         <Collapsible.Panel
           className="bg-[#f5f5f5] rounded-b-[0.625rem] px-[15px] py-[12.5px] font-barlow text-[1.125rem] text-[#222] flex flex-col gap-[10px]"
         >
