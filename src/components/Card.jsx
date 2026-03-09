@@ -59,6 +59,11 @@ const CardComponent = ({
   const [open, setOpen] = useState(false);
   const tonerSlots = toner ?? (isColor ? TONER_COLOR : TONER_MONO);
 
+  // Orange and green cards hide the header warning when collapsed
+  const CALM_COLORS = ["#c0681f", "#1a6b3a"];
+  const isCalm = CALM_COLORS.map(c => c.toLowerCase()).includes(color.toLowerCase());
+  const showHeaderWarning = !isCalm;
+
   return (
     <div
       className="w-full min-w-70"
@@ -80,7 +85,9 @@ const CardComponent = ({
             </div>
           </div>
           <FontAwesomeIcon icon={faPrint} className="text-white text-[3.125rem]" />
-          <FontAwesomeIcon icon={faTriangleExclamation} className="text-[#f5d000] text-[1.25rem] absolute top-[10px] right-[10px]" />
+          {showHeaderWarning && (
+            <FontAwesomeIcon icon={faTriangleExclamation} className="text-[#f5d000] text-[1.25rem] absolute top-[10px] right-[10px]" />
+          )}
         </div>
 
         {/* Status / trigger bar */}
@@ -91,7 +98,7 @@ const CardComponent = ({
           <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} className="text-[#555] text-[1rem]" />
         </Collapsible.Trigger>
 
-        {/* Expanded panel — normal flow, only pushes cards below in same column */}
+        {/* Expanded panel */}
         <Collapsible.Panel
           className="bg-[#f5f5f5] rounded-b-[0.625rem] px-[15px] py-[12.5px] font-barlow text-[1.125rem] text-[#222] flex flex-col gap-[10px]"
         >
