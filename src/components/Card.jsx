@@ -61,7 +61,7 @@ const CardComponent = ({
 
   return (
     <div
-      className="w-full"
+      className="w-full min-w-70"
       style={{ filter: 'drop-shadow(0.5rem 0.5rem 0rem rgba(0,0,0,0.4))' }}
     >
       <Collapsible.Root open={open} onOpenChange={setOpen}>
@@ -72,7 +72,7 @@ const CardComponent = ({
           style={{ backgroundColor: color }}
         >
           <div className="flex flex-col items-start">
-            <div className="text-white font-alumni text-[2.5rem] font-bold leading-none mt-[0.625rem]">
+            <div className="text-white font-alumni text-[2.5rem] font-bold leading-none mt-[0.625rem] truncate">
               {title}
             </div>
             <div className="text-white font-alumni text-[1.25rem] mb-[0.3125rem]">
@@ -87,7 +87,7 @@ const CardComponent = ({
         <Collapsible.Trigger
           className={`w-full box-border bg-[#e0e0e0] hover:bg-[#d0d0d0] px-[12.5px] py-[7.5px] flex justify-between items-center cursor-pointer font-barlow text-[1.125rem] text-[#333] select-none ${open ? '' : 'rounded-b-[0.625rem]'}`}
         >
-          <span className="italic text-[#555]">{statusSummary}</span>
+          <span className="italic text-[#555] truncate">{statusSummary}</span>
           <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} className="text-[#555] text-[1rem]" />
         </Collapsible.Trigger>
 

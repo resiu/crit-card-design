@@ -1,14 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
 import PrinterGrid from './components/PrinterGrid';
+import SearchBar from './components/SearchBar';
+import printers from './models/model';
 import './dist.css';
 
 function App() {
+  const [query, setQuery] = useState('');
+
+  const filteredPrinters = printers.filter((p) =>
+    p.title.toLowerCase().replace(/[^a-z0-9\s]/g, '').includes(query.toLowerCase().replace(/[^a-z0-9\s]/g, ''))
+  );
+
   return (
-    <PrinterGrid />
+    <>
+      <SearchBar onChange={setQuery} />
+      <PrinterGrid printers={filteredPrinters} />
+    </>
   );
 }
 
-export default App
+export default App;
