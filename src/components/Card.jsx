@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Collapsible } from '@base-ui/react/collapsible';
+import { Toggle } from '@base-ui/react/toggle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPrint, faTriangleExclamation, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faPrint, faTriangleExclamation, faChevronDown, faChevronUp, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarOutline } from '@fortawesome/free-regular-svg-icons'; 
 
 const SupplyBar = ({ percent, color, warning }) => (
   <div className="flex items-center gap-[7.5px] relative">
@@ -57,9 +59,9 @@ const CardComponent = ({
   toner,
 }) => {
   const [open, setOpen] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false); 
   const tonerSlots = toner ?? (isColor ? TONER_COLOR : TONER_MONO);
 
-  // Orange and green cards hide the header warning when collapsed
   const CALM_COLORS = ["#c0681f", "#1a6b3a"];
   const isCalm = CALM_COLORS.map(c => c.toLowerCase()).includes(color.toLowerCase());
   const showHeaderWarning = !isCalm;
@@ -80,8 +82,33 @@ const CardComponent = ({
             <div className="text-white font-alumni text-[2.5rem] font-bold leading-none mt-[0.625rem] truncate">
               {title}
             </div>
-            <div className="text-white font-alumni text-[1.25rem] mb-[0.3125rem]">
-              {subtitle}
+            {/* ADDED: subtitle row with Base UI Toggle wrapping the star icons */}
+            <div className="flex items-center gap-[6px] mb-[0.125rem]">
+              <Toggle
+                aria-label="Favorite"
+                pressed={isFavorited}
+                onPressedChange={(pressed) => setIsFavorited(pressed)}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-transparent border-0 p-0 cursor-pointer leading-none"
+              >
+                <span className="relative inline-flex items-center justify-center">
+                  <FontAwesomeIcon
+                    icon={faStarOutline}
+                    className="text-[1.1rem] text-white"
+                  />
+                  {isFavorited && (
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      className="absolute text-[1.1rem]"
+                      style={{ color: '#f5d000' }}
+                    />
+                  )}
+                  
+                </span>
+              </Toggle>
+              <div className="text-white font-alumni text-[1.25rem]">
+                {subtitle}
+              </div>
             </div>
           </div>
           <FontAwesomeIcon icon={faPrint} className="text-white text-[3.125rem]" />
