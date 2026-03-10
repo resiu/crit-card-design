@@ -34,7 +34,7 @@ function useColumnCount(minColWidth = 280, gap = 20) {
   return [ref, colCount];
 }
 
-const PrinterGrid = ({ printers }) => {
+const PrinterGrid = ({ printers, onToggleFavorite }) => {
   const [containerRef, colCount] = useColumnCount(280, 20);
    const columns = distributeIntoColumns(printers, colCount);
 
@@ -52,7 +52,13 @@ const PrinterGrid = ({ printers }) => {
         {columns.map((col, ci) => (
           <div key={ci} className="flex-1 flex flex-col gap-5 min-w-0">
             {col.map(({ item, index }) => (
-              <Card key={index} {...item} />
+              <Card
+                key={index}
+                {...item}
+                onToggleFavorite={(pressed) =>
+                  onToggleFavorite(item.printerId, pressed)
+                }
+              />
             ))}
           </div>
         ))}

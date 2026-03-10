@@ -57,9 +57,14 @@ const CardComponent = ({
   isColor       = true,
   paper         = [{ percent: 36, color: '#1a3a6b' }, { percent: 76, color: '#1a3a6b' }],
   toner,
+  isFavorited = false,
+  onToggleFavorite,
 }) => {
+
+  console.log("Card props:", { isFavorited, onToggleFavorite });
+
   const [open, setOpen] = useState(false);
-  const [isFavorited, setIsFavorited] = useState(false); 
+
   const tonerSlots = toner ?? (isColor ? TONER_COLOR : TONER_MONO);
 
   const CALM_COLORS = ["#c0681f", "#1a6b3a"];
@@ -82,13 +87,15 @@ const CardComponent = ({
             <div className="text-white font-alumni text-[2.5rem] font-bold leading-none mt-[0.625rem] truncate">
               {title}
             </div>
-            {/* ADDED: subtitle row with Base UI Toggle wrapping the star icons */}
+            {/* subtitle row with Base UI Toggle wrapping the star icons */}
             <div className="flex items-center gap-[6px] mb-[0.125rem]">
               <Toggle
                 aria-label="Favorite"
                 pressed={isFavorited}
-                onPressedChange={(pressed) => setIsFavorited(pressed)}
-                onClick={(e) => e.stopPropagation()}
+                onPressedChange={(pressed) => {
+                  onToggleFavorite(pressed); 
+                }}
+                onClick={(e) => e.stopPropagation()} 
                 className="bg-transparent border-0 p-0 cursor-pointer leading-none"
               >
                 <span className="relative inline-flex items-center justify-center">
@@ -103,7 +110,6 @@ const CardComponent = ({
                       style={{ color: '#f5d000' }}
                     />
                   )}
-                  
                 </span>
               </Toggle>
               <div className="text-white font-alumni text-[1.25rem]">
