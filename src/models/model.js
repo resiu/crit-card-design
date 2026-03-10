@@ -53,7 +53,7 @@ const printers = [
     ],
   },
   {
-    title: "Chapin Hallway",
+    title: "Chapin Hallwayyyy",
     subtitle: "LaserJet 62665",
     statusSummary: "Cyan below 25% threshold",
     printerId: "PRN-004-IRV",

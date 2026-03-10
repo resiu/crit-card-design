@@ -76,15 +76,15 @@ const CardComponent = ({
           className="w-full box-border h-[4.375rem] rounded-t-[0.625rem] px-[1.25rem] py-[2.5rem] flex justify-between items-center relative"
           style={{ backgroundColor: color }}
         >
-          <div className="flex flex-col items-start">
-            <div className="text-white font-alumni text-[2.5rem] font-bold leading-none mt-[0.625rem] truncate">
+          <div className="flex flex-col items-start min-w-0">
+            <div className="text-white font-alumni text-[2.5rem] font-bold leading-none mt-[0.625rem] truncate w-full">
               {title}
             </div>
             <div className="text-white font-alumni text-[1.25rem] mb-[0.3125rem]">
               {subtitle}
             </div>
           </div>
-          <FontAwesomeIcon icon={faPrint} className="text-white text-[3.125rem]" />
+          <FontAwesomeIcon icon={faPrint} className="text-white text-[3.125rem] shrink-0" />
           {showHeaderWarning && (
             <FontAwesomeIcon icon={faTriangleExclamation} className="text-[#f5d000] text-[1.25rem] absolute top-[10px] right-[10px]" />
           )}
