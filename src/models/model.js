@@ -9,6 +9,8 @@ const printers = [
     printCount: "142,330",
     color: "#811311",
     isColor: false,
+    latitude: 40.9165,
+    longitude: -73.1185,
     paper: [
       { percent: 12, color: "#1a3a6b", warning: "Low paper!" },
       { percent: 80, color: "#1a3a6b" },
@@ -25,6 +27,8 @@ const printers = [
     printCount: "98,741",
     color: "#811311",
     isColor: false,
+    latitude: 40.9130,
+    longitude: -73.1280,
     paper: [
       { percent: 0, color: "#1a3a6b", warning: "Empty!" },
       { percent: 55, color: "#1a3a6b" },
@@ -41,6 +45,8 @@ const printers = [
     printCount: "210,005",
     color: "#b05a00",
     isColor: true,
+    latitude: 40.9170,
+    longitude: -73.1180,
     paper: [
       { percent: 60, color: "#1a3a6b" },
       { percent: 45, color: "#1a3a6b" },
@@ -62,6 +68,8 @@ const printers = [
     printCount: "77,430",
     color: "#b05a00",
     isColor: true,
+    latitude: 40.9080,
+    longitude: -73.1110,
     paper: [
       { percent: 88, color: "#1a3a6b" },
       { percent: 30, color: "#1a3a6b" },
@@ -83,6 +91,8 @@ const printers = [
     printCount: "54,120",
     color: "#1a6b3a",
     isColor: true,
+    latitude: 40.9200,
+    longitude: -73.1190,
     paper: [
       { percent: 95, color: "#1a3a6b" },
       { percent: 70, color: "#1a3a6b" },
@@ -104,6 +114,8 @@ const printers = [
     printCount: "33,800",
     color: "#1a6b3a",
     isColor: false,
+    latitude: 40.9115,
+    longitude: -73.1250,
     paper: [
       { percent: 76, color: "#1a3a6b" },
       { percent: 100, color: "#1a3a6b" },
@@ -120,6 +132,8 @@ const printers = [
     printCount: "189,050",
     color: "#1a6b3a",
     isColor: true,
+    latitude: 40.9110,
+    longitude: -73.1220,
     paper: [
       { percent: 50, color: "#1a3a6b" },
       { percent: 85, color: "#1a3a6b" },
@@ -141,6 +155,8 @@ const printers = [
     printCount: "401,230",
     color: "#1a6b3a",
     isColor: false,
+    latitude: 40.9100,
+    longitude: -73.1310,
     paper: [
       { percent: 40, color: "#1a3a6b" },
       { percent: 90, color: "#1a3a6b" },

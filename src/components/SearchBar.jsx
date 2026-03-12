@@ -18,7 +18,7 @@ const SearchBar = ({ placeholder = "Search printers...", onChange }) => {
 
   return (
     <div
-      className="flex items-center gap-[10px] font-barlow mt-8 ml-8"
+      className="flex items-center gap-[10px] font-barlow"
       style={{
         background: focused ? '#fff' : '#ececec',
         border: `2px solid ${focused ? '#811311' : '#ccc'}`,
